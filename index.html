@@ -7,15 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&family=Amatic+SC:wght@700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <!-- פונטים בסגנון רטרו ישראלי וסריפים בעלי נוכחות -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Frank+Ruhl+Libre:wght@700;900&family=Amatic+SC:wght@700&family=Secular+One&display=swap" rel="stylesheet">
     <style>
         :root {
             --earth-brown: #3d2b1f;
             --forest-green: #2d3e2d;
-            --warm-clay: #b85c38;
+            --warm-clay: #b85c38; 
+            --bright-orange: #f97316; /* כתום בהיר ותוסס יותר */
             --paper-bg: #f5f2eb;
             --leaf-green: #6b705c;
             --olive-drab: #556b2f; 
+            
+            /* Social Colors */
+            --facebook-blue: #1877F2;
+            --instagram-pink: #E4405F;
+            --youtube-red: #FF0000;
         }
 
         body {
@@ -35,20 +42,28 @@
             letter-spacing: 2px;
         }
 
-        /* סגנון כותרת משנה מודגשת במיוחד */
+        /* סגנון כותרת משנה */
         .subtitle-bold {
             font-family: 'Assistant', sans-serif;
             font-weight: 800;
-            letter-spacing: -0.01em;
+            letter-spacing: 0.05em;
+            color: var(--forest-green);
+            opacity: 0.8;
         }
 
-        /* סגנון חגיגי ומודגש לכותרת האלבום עם צבע ירוק זית */
+        /* פונט רטרו סריפי מודרני בכתום בהיר */
         .album-title-font {
-            font-family: 'Frank Ruhl Libre', serif;
-            font-weight: 900;
-            font-style: normal;
+            font-family: 'Secular One', sans-serif;
+            font-weight: normal; /* Secular One הוא כבד בטבעו */
+            font-size: clamp(4.5rem, 15vw, 10rem);
+            line-height: 0.8;
             letter-spacing: -0.02em;
-            color: var(--olive-drab);
+            color: var(--bright-orange);
+            position: relative;
+            display: inline-block;
+            margin-top: 0.5rem;
+            /* צל רטרו קשיח וחד שנותן תחושת תלת-מימד של פעם */
+            text-shadow: 4px 4px 0px rgba(61, 43, 31, 0.1);
         }
 
         .communique-text {
@@ -67,8 +82,9 @@
 
         .btn-organic:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px var(--warm-clay);
-            background-color: var(--warm-clay);
+            /* היילייט עדין יותר לכפתור הראשון - משתמש בירוק זית/חמרה במקום כתום בהיר */
+            box-shadow: 6px 6px 0px var(--earth-brown);
+            background-color: var(--olive-drab);
         }
 
         .album-shadow {
@@ -103,23 +119,50 @@
         .header-text-box h1 {
             line-height: 1;
         }
+
+        /* Social Icons Styles */
+        .social-icon {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            filter: grayscale(0.2) contrast(0.9);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            filter: grayscale(0) contrast(1.1);
+        }
+
+        .social-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-fb { stroke: var(--facebook-blue); }
+        .icon-ig { stroke: var(--instagram-pink); }
+        .icon-yt { stroke: var(--youtube-red); }
+
+        .social-container:hover .social-icon:not(:hover) {
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Section - Logo on right, text next to it -->
-    <header class="pt-12 pb-10 px-6">
+    <!-- Header Section -->
+    <header class="pt-16 pb-12 px-6">
         <div class="header-container">
-            <!-- Logo - Regular size -->
             <div class="img-container shrink-0">
                 <img src="logo2026.png" alt="לוגו פאם פאח" class="w-32 md:w-52 h-auto object-contain mix-blend-multiply" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="img-fallback-text font-bold">[לוגו]</div>
+                <div class="img-fallback-text font-bold">[לוגו פאם פאח]</div>
             </div>
             
-            <!-- Prominent Text next to logo -->
             <div class="header-text-box">
-                <h2 class="subtitle-bold text-2xl md:text-3xl text-orange-800 uppercase mb-1">פאם פאח אורקסטרא משיקה אלבום בכורה:</h2>
-                <h1 class="album-title-font text-6xl md:text-8xl drop-shadow-sm">חגיגה</h1>
+                <h2 class="subtitle-bold text-lg md:text-xl uppercase mb-1 tracking-widest">פאם פאח אורקסטרא משיקה אלבום בכורה</h2>
+                <h1 class="album-title-font">חגיגה</h1>
             </div>
         </div>
     </header>
@@ -162,7 +205,6 @@
                         </div>
                     </div>
                     
-                    <!-- Spotify Player -->
                     <div class="w-full">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6GIWqGBuaNE8POFIWpTvMy?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
@@ -178,17 +220,16 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <!-- Downloads -->
                     <a href="קומוניקט  - פאם פאח אורקסטרא (1).pdf" download class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2">
-                        <span>📥</span> הורדת קומוניקט
+                        <span>📥</span> הורדת קומוניקט 
                     </a>
                     
-                    <a href="https://drive.google.com/drive/folders/1JXKeFeJ1I6xvaKxYeQS4zkkJiwCPAugR?usp=sharing" target="_blank" class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2" style="background-color: var(--warm-clay);">
-                        <span>🎵</span> הורדת שירים
+                    <a href="https://drive.google.com/drive/folders/1JXKeFeJ1I6xvaKxYeQS4zkkJiwCPAugR?usp=sharing" target="_blank" class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2" style="background-color: var(--bright-orange);">
+                        <span>🎵</span> הורדת שירים 
                     </a>
 
                     <a href="https://photos.app.goo.gl/sGg8q2j4Riuseg6W9" target="_blank" class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2" style="background-color: var(--leaf-green);">
-                        <span>📸</span> תמונות יח"צ
+                        <span>📸</span> תמונות יח"צ 
                     </a>
                 </div>
 
@@ -213,13 +254,19 @@
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-stone-900 text-stone-500 py-16 px-6 text-center">
-        <div class="flex justify-center gap-8 mb-8">
-            <a href="https://www.facebook.com/PamPahOrchestra" target="_blank" class="hover:text-white transition">FACEBOOK</a>
-            <a href="https://www.instagram.com/pam_pah_orkestra" target="_blank" class="hover:text-white transition">INSTAGRAM</a>
-            <a href="https://www.youtube.com/@pam-pah-orkestra" target="_blank" class="hover:text-white transition">YOUTUBE</a>
+    <footer class="bg-stone-900 py-16 px-6 text-center">
+        <div class="social-container flex justify-center gap-12 mb-8">
+            <a href="https://www.facebook.com/PamPahOrchestra" target="_blank" class="social-icon icon-fb" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/pam_pah_orkestra" target="_blank" class="social-icon icon-ig" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.youtube.com/@pam-pah-orkestra" target="_blank" class="social-icon icon-yt" aria-label="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
+            </a>
         </div>
-        <p class="text-[10px] tracking-[0.3em] uppercase opacity-50">&copy; 2026 פאם פאח אורקסטרא</p>
+        <p class="text-stone-500 text-[10px] tracking-[0.3em] uppercase opacity-50">&copy; 2026 פאם פאח אורקסטרא</p>
     </footer>
 
 </body>
