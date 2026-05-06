@@ -31,7 +31,7 @@
 
         .folk-title {
             font-family: 'Amatic SC', cursive;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .communique-text {
@@ -63,7 +63,7 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            margin: 3rem 0;
+            margin: 4rem 0;
             color: var(--leaf-green);
             opacity: 0.5;
         }
@@ -77,14 +77,14 @@
 
         .img-container {
             position: relative;
-            background: #e5e7eb;
+            background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
         }
         
         .img-fallback-text {
+            display: none;
             position: absolute;
             font-family: 'Amatic SC', cursive;
             font-size: 2rem;
@@ -92,20 +92,56 @@
             text-align: center;
             padding: 20px;
         }
+
+        /* Hero Section Refinement */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .floating-title-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(245, 242, 235, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 1.5rem 3rem;
+            border: 1px solid rgba(61, 43, 31, 0.15);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            width: 85%;
+            max-width: 550px;
+            z-index: 20;
+            border-radius: 4px;
+        }
+
+        .floating-title-box h1 {
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="pt-12 pb-6 px-6 text-center">
-        <div class="h-40 md:h-56 mx-auto mb-8 max-w-md img-container rounded-lg shadow-sm">
-            <!-- שם הקובץ המעודכן לבקשתך -->
-            <img src="logo2026.png" alt="לוגו פאם פאח" class="h-full w-full object-contain mix-blend-multiply relative z-10" onload="this.style.opacity=1" style="opacity:0; transition: opacity 0.5s;" onerror="this.parentElement.querySelector('.img-fallback-text').classList.remove('hidden'); this.style.display='none';">
-            <div class="img-fallback-text font-bold hidden">[לוגו פאם פאח אורקסטרא]</div>
+    <!-- Header / Hero Section -->
+    <header class="pt-8 pb-12 px-6 text-center">
+        <div class="hero-section">
+            <div class="img-container w-full">
+                <!-- לוגו גדול ודומיננטי -->
+                <img src="logo2026.png" alt="לוגו פאם פאח" class="w-full h-auto max-h-[550px] object-contain mix-blend-multiply relative z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="img-fallback-text font-bold text-4xl">[לוגו פאם פאח אורקסטרא]</div>
+            </div>
+            
+            <!-- כותרת מרחפת מעוצבת מחדש -->
+            <div class="floating-title-box">
+                <h2 class="folk-title text-xl md:text-2xl text-orange-800 uppercase tracking-[0.2em] mb-1">משיקה אלבום בכורה</h2>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-stone-900 leading-none">חגיגה</h1>
+            </div>
         </div>
-        <h2 class="folk-title text-3xl md:text-4xl text-orange-900 uppercase">משיקה אלבום בכורה</h2>
-        <h1 class="text-6xl md:text-9xl font-black mt-2 mb-4 tracking-tighter text-stone-900">חגיגה</h1>
-        <div class="ornament-sep text-2xl">❧</div>
+        
+        <div class="mt-20 ornament-sep text-2xl">❧</div>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 pb-24">
@@ -157,7 +193,7 @@
                 
                 <div class="album-shadow transform rotate-1 hover:rotate-0 transition-transform duration-700 aspect-square img-container bg-stone-200">
                     <img src="HAGIGAH cover for social media.jpg" alt="עטיפת האלבום חגיגה" class="w-full h-full object-cover relative z-10" onerror="this.style.display='none'">
-                    <div class="img-fallback-text">[עטיפת האלבום חגיגה]</div>
+                    <div class="img-fallback-text text-stone-400">[עטיפת האלבום חגיגה]</div>
                 </div>
 
                 <div class="flex flex-col gap-4">
