@@ -58,23 +58,6 @@
             box-shadow: 20px 20px 60px rgba(0,0,0,0.1), -10px -10px 60px rgba(255,255,255,0.5);
         }
 
-        .ornament-sep {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin: 4rem 0;
-            color: var(--leaf-green);
-            opacity: 0.5;
-        }
-        
-        .ornament-sep::before, .ornament-sep::after {
-            content: "";
-            height: 1px;
-            width: 100px;
-            background: currentColor;
-        }
-
         .img-container {
             position: relative;
             background: transparent;
@@ -99,19 +82,19 @@
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
-            padding-bottom: 60px;
+            padding-bottom: 40px;
         }
 
         .floating-title-box {
             position: absolute;
-            bottom: 20px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             background-color: rgba(245, 242, 235, 0.85);
             backdrop-filter: blur(8px);
-            padding: 1.5rem 3rem;
+            padding: 1rem 3rem;
             border: 1px solid rgba(61, 43, 31, 0.15);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             width: 85%;
             max-width: 550px;
             z-index: 20;
@@ -126,25 +109,24 @@
 <body>
 
     <!-- Header / Hero Section -->
-    <header class="pt-8 pb-12 px-6 text-center">
+    <header class="pt-8 pb-4 px-6 text-center">
         <div class="hero-section">
             <div class="img-container w-full">
-                <!-- לוגו גדול ודומיננטי -->
+                <!-- Main Logo -->
                 <img src="logo2026.png" alt="לוגו פאם פאח" class="w-full h-auto max-h-[550px] object-contain mix-blend-multiply relative z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="img-fallback-text font-bold text-4xl">[לוגו פאם פאח אורקסטרא]</div>
             </div>
             
-            <!-- כותרת מרחפת מעוצבת מחדש -->
+            <!-- Floating title above the bottom of the logo -->
             <div class="floating-title-box">
                 <h2 class="folk-title text-xl md:text-2xl text-orange-800 uppercase tracking-[0.2em] mb-1">משיקה אלבום בכורה</h2>
                 <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-stone-900 leading-none">חגיגה</h1>
             </div>
         </div>
-        
-        <div class="mt-20 ornament-sep text-2xl">❧</div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 pb-24">
+    <!-- Content -->
+    <main class="max-w-6xl mx-auto px-6 pb-24 mt-4">
         
         <div class="grid lg:grid-cols-3 gap-16 items-start">
             
@@ -197,17 +179,23 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
+                    <!-- PDF Download -->
                     <a href="קומוניקט  - פאם פאח אורקסטרא (1).pdf" download class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2">
-                        <span>📥</span> הורדת קומוניקט מלא (PDF)
+                        <span>📥</span> הורדת קומוניקט
                     </a>
+                    
+                    <!-- Drive Folder -->
                     <a href="https://drive.google.com/drive/folders/1JXKeFeJ1I6xvaKxYeQS4zkkJiwCPAugR?usp=sharing" target="_blank" class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2" style="background-color: var(--warm-clay);">
-                        <span>🎵</span> הורדת תיקיית שירים (Google Drive)
+                        <span>🎵</span> הורדת שירים
                     </a>
-                    <a href="#" class="text-center text-stone-500 hover:text-stone-800 transition underline decoration-dotted text-sm">
-                        הורדת תמונות יח"צ ברזולוציה גבוהה
+
+                    <!-- PR Photos - Updated Link -->
+                    <a href="https://photos.app.goo.gl/sGg8q2j4Riuseg6W9" target="_blank" class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2" style="background-color: var(--leaf-green);">
+                        <span>📸</span> תמונות יח"צ
                     </a>
                 </div>
 
+                <!-- Ticket Info -->
                 <div class="bg-orange-100/50 p-8 border-2 border-dashed border-orange-300 rounded-sm">
                     <h4 class="folk-title text-2xl text-orange-900 mb-4">מופע השקה חגיגי</h4>
                     <p class="text-xl font-bold mb-1">מועדון תמונע, תל אביב</p>
@@ -216,6 +204,7 @@
                     <a href="https://tmu-na.org.il/?CategoryID=102&ArticleID=6381" target="_blank" class="block mt-6 w-full py-3 border-2 border-stone-800 text-center font-bold hover:bg-stone-800 hover:text-white transition uppercase tracking-tighter">לרכישת כרטיסים</a>
                 </div>
 
+                <!-- Contact -->
                 <div class="text-right space-y-2 border-r-2 border-stone-200 pr-4">
                     <h5 class="font-bold uppercase text-xs tracking-widest text-stone-400">ליצירת קשר ותיאום</h5>
                     <p class="text-stone-600">052-8746947</p>
