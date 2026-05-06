@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&family=Amatic+SC:wght@700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
             --earth-brown: #3d2b1f;
@@ -15,6 +15,7 @@
             --warm-clay: #b85c38;
             --paper-bg: #f5f2eb;
             --leaf-green: #6b705c;
+            --olive-drab: #556b2f; /* צבע ירוק זית חדש */
         }
 
         body {
@@ -32,6 +33,22 @@
         .folk-title {
             font-family: 'Amatic SC', cursive;
             letter-spacing: 2px;
+        }
+
+        /* סגנון כותרת משנה מודגשת במיוחד */
+        .subtitle-bold {
+            font-family: 'Assistant', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        /* סגנון חגיגי ומודגש לכותרת האלבום עם צבע ירוק זית */
+        .album-title-font {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 900;
+            font-style: normal;
+            letter-spacing: -0.02em;
+            color: var(--olive-drab);
         }
 
         .communique-text {
@@ -63,69 +80,51 @@
             background: transparent;
             display: flex;
             align-items: center;
-            justify-content: center;
         }
         
         .img-fallback-text {
             display: none;
-            position: absolute;
             font-family: 'Amatic SC', cursive;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--leaf-green);
-            text-align: center;
-            padding: 20px;
+            padding: 10px;
         }
 
-        /* Hero Section Refinement */
-        .hero-section {
-            position: relative;
-            width: 100%;
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2.5rem;
             max-width: 1100px;
             margin: 0 auto;
-            padding-bottom: 40px;
+            text-align: right;
         }
 
-        .floating-title-box {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(245, 242, 235, 0.85);
-            backdrop-filter: blur(8px);
-            padding: 1rem 3rem;
-            border: 1px solid rgba(61, 43, 31, 0.15);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            width: 85%;
-            max-width: 550px;
-            z-index: 20;
-            border-radius: 4px;
-        }
-
-        .floating-title-box h1 {
-            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        .header-text-box h1 {
+            line-height: 1;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Hero Section -->
-    <header class="pt-8 pb-4 px-6 text-center">
-        <div class="hero-section">
-            <div class="img-container w-full">
-                <!-- Main Logo -->
-                <img src="logo2026.png" alt="לוגו פאם פאח" class="w-full h-auto max-h-[550px] object-contain mix-blend-multiply relative z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="img-fallback-text font-bold text-4xl">[לוגו פאם פאח אורקסטרא]</div>
+    <!-- Header Section - Logo on right, text next to it -->
+    <header class="pt-12 pb-10 px-6">
+        <div class="header-container">
+            <!-- Logo - Regular size -->
+            <div class="img-container shrink-0">
+                <img src="logo2026.png" alt="לוגו פאם פאח" class="w-32 md:w-52 h-auto object-contain mix-blend-multiply" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="img-fallback-text font-bold">[לוגו]</div>
             </div>
             
-            <!-- Floating title above the bottom of the logo -->
-            <div class="floating-title-box">
-                <h2 class="folk-title text-xl md:text-2xl text-orange-800 uppercase tracking-[0.2em] mb-1">משיקה אלבום בכורה</h2>
-                <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-stone-900 leading-none">חגיגה</h1>
+            <!-- Prominent Text next to logo -->
+            <div class="header-text-box">
+                <h2 class="subtitle-bold text-2xl md:text-3xl text-orange-800 uppercase mb-1">פאם פאח אורקסטרא משיקה אלבום בכורה:</h2>
+                <h1 class="album-title-font text-6xl md:text-8xl drop-shadow-sm">חגיגה</h1>
             </div>
         </div>
     </header>
 
-    <!-- Content -->
+    <!-- Content Area -->
     <main class="max-w-6xl mx-auto px-6 pb-24 mt-4">
         
         <div class="grid lg:grid-cols-3 gap-16 items-start">
@@ -155,7 +154,7 @@
                     </p>
                 </section>
 
-                <!-- Audio Section with Spotify Embed -->
+                <!-- Audio Section -->
                 <section id="listen" class="bg-stone-800 text-stone-100 p-8 rounded-sm shadow-2xl">
                     <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-stone-600 pb-4">
                         <div>
@@ -170,7 +169,7 @@
                 </section>
             </div>
 
-            <!-- Visuals & Actions -->
+            <!-- Sidebar -->
             <div class="space-y-12 lg:sticky lg:top-8">
                 
                 <div class="album-shadow transform rotate-1 hover:rotate-0 transition-transform duration-700 aspect-square img-container bg-stone-200">
@@ -179,23 +178,21 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <!-- PDF Download -->
+                    <!-- Downloads -->
                     <a href="קומוניקט  - פאם פאח אורקסטרא (1).pdf" download class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2">
-                        <span>📥</span> הורדת קומוניקט
+                        <span>📥</span> הורדת קומוניקט (PDF)
                     </a>
                     
-                    <!-- Drive Folder -->
                     <a href="https://drive.google.com/drive/folders/1JXKeFeJ1I6xvaKxYeQS4zkkJiwCPAugR?usp=sharing" target="_blank" class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2" style="background-color: var(--warm-clay);">
-                        <span>🎵</span> הורדת שירים
+                        <span>🎵</span> הורדת שירים (G-Drive)
                     </a>
 
-                    <!-- PR Photos - Updated Link -->
                     <a href="https://photos.app.goo.gl/sGg8q2j4Riuseg6W9" target="_blank" class="btn-organic w-full py-5 text-center font-bold text-xl flex items-center justify-center gap-2" style="background-color: var(--leaf-green);">
-                        <span>📸</span> תמונות יח"צ
+                        <span>📸</span> תמונות יח"צ (Google Photos)
                     </a>
                 </div>
 
-                <!-- Ticket Info -->
+                <!-- Event Details -->
                 <div class="bg-orange-100/50 p-8 border-2 border-dashed border-orange-300 rounded-sm">
                     <h4 class="folk-title text-2xl text-orange-900 mb-4">מופע השקה חגיגי</h4>
                     <p class="text-xl font-bold mb-1">מועדון תמונע, תל אביב</p>
@@ -215,7 +212,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer class="bg-stone-900 text-stone-500 py-16 px-6 text-center">
         <div class="flex justify-center gap-8 mb-8">
             <a href="https://www.facebook.com/PamPahOrchestra" target="_blank" class="hover:text-white transition">FACEBOOK</a>
